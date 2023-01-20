@@ -1,6 +1,6 @@
 {
   "name": "@fiix/flatfile-angular-adapter", 
-  "version": "1.3",
+  "version": "1.3.0",
   "publishConfig": {
     "registry": "https://nexus.fiix.ninja/repository/npm_hosted/"
   },
