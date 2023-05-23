@@ -1,5 +1,14 @@
 # Changelog
 
+### 1.4.0
+Migrating the project to Angular 14.
+
+### 1.3.1
+Changing the i18nOverrides property type to be  `IDictionary<string ! IDictionary<string>>`
+
+### 1.3.0
+Migrating the project to Angular 13.
+
 ### 1.2.9
 Minor release to bump base adapter version to fix minor bug there.
 
