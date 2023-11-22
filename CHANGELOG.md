@@ -1,5 +1,8 @@
 # Changelog
 
+### 1.5.0
+Migrating the project to Angular 15.
+
 ### 1.4.0
 Migrating the project to Angular 14.
 
