@@ -1,0 +1,28 @@
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'projects/angular-adapter/package.json'
+env:
+  package-json-path: 'projects/angular-adapter/package.json'
+jobs:
+  publish-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: get version
+        id: get-version
+        run: |
+          echo "package_version=$(cat ${{ env.package-json-path }} | jq -r .version)" >> $GITHUB_OUTPUT
+
+      - name: publish release
+        uses: release-drafter/release-drafter@v5
+        with:
+          publish: true
+          version: ${{ steps.get-version.outputs.package_version }}
+          config-name: release-drafter-config.yml
+        env:
+          GITHUB_TOKEN: ${{ secrets.DEVOPS_PAT }}

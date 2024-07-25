@@ -1,0 +1,26 @@
+# This workflow builds and releases the fiix angular barcode component
+# package when new release tags are pushed (example: v12.0.2)
+name: Flatfile Angular Adapter Component Library - Release
+on:
+  push:
+    tags:
+      - v*
+jobs:
+  build:
+    runs-on: self-hosted-central
+    permissions:
+      id-token: write
+      contents: read
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: echo //nexus.fiix.ninja/repository/npm_hosted/:_authToken=${{ secrets.NPM_TOKEN }} >> ~/.npmrc
+      - run: npm ci
+      - run: npm run prepublish:nexus
+      - run: npm run publish:nexus

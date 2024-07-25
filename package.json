@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve angular-adapter",
     "build": "ng build angular-adapter",
+    "prepublish:nexus": "npm run prebuild:prod && npm run build:prod",
+    "publish:nexus": "npm run publish:pkg",
     "prebuild:prod": "sh ./cp-readme.sh && rm -rf ./dist",
     "build:prod": "ng build angular-adapter --configuration production",
     "format": "prettier --write \"projects/**/*.ts\"",
