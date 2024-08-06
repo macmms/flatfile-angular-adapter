@@ -1,5 +1,8 @@
 # Changelog
 
+### 1.6.0 - 2024-08-06
+Migrating the project to Angular 16.
+
 ### 1.5.0
 Migrating the project to Angular 15.
 
